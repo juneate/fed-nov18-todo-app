@@ -4,9 +4,16 @@ var submitTask = document.getElementById('submit-task');  // a submit button
 var todoList = document.getElementById('todo-list');      // a unordered list
 
 // 2. Store a few tasks/items todo
-
+var tasksToDo = ["Walk to the dog", "Wrap up FED Nov 2018", "Finish this app"];
 
 // 3. Load up the todo list with items stored
+// for (var i = 0; i < tasksToDo.length; i++) {
+//   todoList.innerHTML += `<li class="task"><a href="#">${tasksToDo[i]}</a></li>`;
+// }
+
+tasksToDo.forEach(function(theTask) {
+  todoList.innerHTML += `<li class="task"><a href="#">${theTask}</a></li>`;
+});
 
 
 // 1. When I click on the "Add" button, add the task to the interface
