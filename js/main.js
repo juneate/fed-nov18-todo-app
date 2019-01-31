@@ -18,15 +18,52 @@ tasksToDo.forEach(function(theTask) {
 
 // 1. When I click on the "Add" button, add the task to the interface
 
-submitTask.addEventListener('click', function() {
+// submitTask.addEventListener('click', function() {
+//
+//   var newTask = inputTask.value;
+//   todoList.innerHTML += `<li class="task"><a href="#">${newTask}</a></li>`;
+//
+// })
 
-  var newTask = inputTask.value;
-  todoList.innerHTML += `<li class="task"><a href="#">${newTask}</a></li>`;
+$('#submit-task').click(function() {
 
+  if (inputTask.value.length > 0) {
+    $('#todo-list').append(`<li class="task"><a href="#">${$('#input-task').val()}</a></li>`)
+
+  }
+  else {
+    swal({
+      title: "Error!!!",
+      text: "You must write a task to add it",
+      icon: "error"
+    });
+  }
+
+  //$('#todo-list').append( $('#submit-task').value() )
 })
 
 
 // 4. When I click a task, toggle it as complete or not-complete
+// document.querySelectorAll('.task').forEach(function(thisTask) {
+//   thisTask.classList.add('complete');
+//   thisTask.innerHTML = '<a href="#">Done!</a>';
+// })
+
+// $('.task').addClass('complete');
+// $('.task a').html('Complete!');
+
+//$('.task').addClass('complete').html('<a href="#">Finito!</a>')
+
+$('.task').sortable().disableSelection();
+$('.task').draggable({ containment: "parent" });
+
+
+$('.task').click(function() {
+  $(this).toggleClass('complete');
+})
+
+$('.make-big-img').fluidbox();
+
 
 
 
